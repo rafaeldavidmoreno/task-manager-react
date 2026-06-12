@@ -1,0 +1,120 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.task-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+
+.task-item--completed {
+  background-color: #f8fafc;
+}
+
+.task-item__checkbox {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.task-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-item__title {
+  margin: 0;
+  font-size: 0.9375rem;
+  word-break: break-word;
+}
+
+.task-item--completed .task-item__title {
+  color: var(--color-completed);
+  text-decoration: line-through;
+}
+
+.task-item__edit-form {
+  display: flex;
+  flex: 1;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.task-item__edit-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.375rem 0.625rem;
+  font-size: 0.9375rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+}
+
+.task-item__edit-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(79 70 229 / 0.15);
+}
+
+.task-item__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-xs);
+}
+
+.task-item__button {
+  padding: 0.375rem 0.625rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.task-item__button:hover {
+  background-color: var(--color-bg);
+}
+
+.task-item__button--edit:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.task-item__button--save {
+  color: #ffffff;
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.task-item__button--save:hover {
+  background-color: #15803d;
+  border-color: #15803d;
+}
+
+.task-item__button--delete:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+@media (max-width: 480px) {
+  .task-item {
+    flex-wrap: wrap;
+  }
+
+  .task-item__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
