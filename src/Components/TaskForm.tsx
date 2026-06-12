@@ -1,7 +1,41 @@
-import React from 'react'
+import type { FormEvent } from 'react'
+import './TaskForm.css'
 
-export const TaskForm = () => {
+interface TaskFormProps {
+  onSubmit: (title: string) => void
+}
+
+export const TaskForm = ({ onSubmit }: TaskFormProps) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const title = (formData.get('title') as string).trim()
+
+    if (!title) return
+
+    onSubmit(title)
+    event.currentTarget.reset()
+  }
+
   return (
-    <div>TaskForm</div>
+    <form className="task-form" onSubmit={handleSubmit}>
+      <label className="task-form__label" htmlFor="task-title">
+        Nueva tarea
+      </label>
+
+      <div className="task-form__row">
+        <input
+          id="task-title"
+          className="task-form__input"
+          type="text"
+          name="title"
+          placeholder="Escribe una tarea..."
+          autoComplete="off"
+        />
+        <button className="task-form__button" type="submit">
+          Añadir
+        </button>
+      </div>
+    </form>
   )
 }
