@@ -7,7 +7,7 @@ import './App.css'
 export default function App() {
   // TODO: gestionar el estado de las tareas (useState o useReducer)
   const [tasks, setTasks] = useState<Task[]>([])
-  const [editingTaskId] = useState<string | null>(null)
+  const [editingTaskId,setEditingTaskId] = useState<string | null>(null)
 
   // TODO: crear una nueva tarea
   const handleCreateTask = (_title: string) => {
@@ -31,7 +31,9 @@ export default function App() {
   }
 
   // TODO: activar modo edición de una tarea
-  const handleStartEdit = (_id: string) => {}
+  const handleStartEdit = (_id: string) => {
+    setEditingTaskId(_id);
+  }
 
   // TODO: guardar cambios de una tarea editada
   const handleSaveEdit = (_id: string, _title: string) => {}
