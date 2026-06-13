@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TaskForm } from './Components/TaskForm'
 import { TaskList } from './Components/TaskList'
 import type { Task } from './types/Task'
+import { loadTasks, saveTasks } from './utils/taskStorage'
 import './App.css'
 
 export default function App() {
-  // TODO: gestionar el estado de las tareas (useState o useReducer)
-  const [tasks, setTasks] = useState<Task[]>([])
-  const [editingTaskId,setEditingTaskId] = useState<string | null>(null)
+  const [tasks, setTasks] = useState<Task[]>(() => loadTasks())
+  const [editingTaskId, setEditingTaskId] = useState<string | null>(null)
+
+  useEffect(() => {
+    saveTasks(tasks)
+  }, [tasks])
 
   // TODO: crear una nueva tarea
   const handleCreateTask = (_title: string) => {
@@ -55,8 +59,6 @@ export default function App() {
   const handleDeleteTask = (_id: string) => {
     setTasks((prevTask) => prevTask.filter((task) => task.id !== _id))
   }
-
-  const pendingCount = tasks.filter((task) => !task.completed).length
 
   return (
     <div className="app">
