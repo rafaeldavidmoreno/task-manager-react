@@ -36,7 +36,15 @@ export default function App() {
   }
 
   // TODO: guardar cambios de una tarea editada
-  const handleSaveEdit = (_id: string, _title: string) => {}
+  const handleSaveEdit = (_id: string, _title: string) => {
+    setTasks((prevTasks) => prevTasks.map((task) =>{
+      if(task.id === _id) {
+        return {...task, title: _title}
+      }
+      return task
+    }))
+    setEditingTaskId(null);
+  }
 
   // TODO: cancelar edición
   const handleCancelEdit = () => {}
