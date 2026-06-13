@@ -52,7 +52,9 @@ export default function App() {
   }
 
   // TODO: eliminar una tarea
-  const handleDeleteTask = (_id: string) => {}
+  const handleDeleteTask = (_id: string) => {
+    setTasks((prevTask) => prevTask.filter((task) => task.id !== _id))
+  }
 
   const pendingCount = tasks.filter((task) => !task.completed).length
 
