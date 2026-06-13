@@ -13,7 +13,7 @@ export default function App() {
     saveTasks(tasks)
   }, [tasks])
 
-  // TODO: crear una nueva tarea
+  // create a new task
   const handleCreateTask = (_title: string) => {
     const newTask: Task = {
       id: crypto.randomUUID(),
@@ -24,7 +24,7 @@ export default function App() {
     setTasks((prevTasks) => [...prevTasks,newTask])
   }
 
-  // TODO: alternar completada / pendiente
+  // toggle completed / pending
   const handleToggleTask = (_id: string) => {
     setTasks((prevTasks) => prevTasks.map((task) =>{
       if(task.id === _id) {
@@ -34,12 +34,12 @@ export default function App() {
     }))
   }
 
-  // TODO: activar modo edición de una tarea
+  // enable task edit mode
   const handleStartEdit = (_id: string) => {
     setEditingTaskId(_id);
   }
 
-  // TODO: guardar cambios de una tarea editada
+  // save edited task changes
   const handleSaveEdit = (_id: string, _title: string) => {
     setTasks((prevTasks) => prevTasks.map((task) =>{
       if(task.id === _id) {
@@ -50,12 +50,12 @@ export default function App() {
     setEditingTaskId(null);
   }
 
-  // TODO: cancelar edición
+  // cancel editing
   const handleCancelEdit = () => {
     setEditingTaskId(null);
   }
 
-  // TODO: eliminar una tarea
+  // delete a task
   const handleDeleteTask = (_id: string) => {
     setTasks((prevTask) => prevTask.filter((task) => task.id !== _id))
   }
@@ -66,7 +66,7 @@ export default function App() {
         <header className="app__header">
           <h1 className="app__title">Task Manager</h1>
           <p className="app__subtitle">
-            Organiza tus tareas del día a día
+            Organize your daily tasks
           </p>
         </header>
 

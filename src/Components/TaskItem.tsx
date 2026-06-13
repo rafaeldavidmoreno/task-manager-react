@@ -40,7 +40,7 @@ export const TaskItem = ({
         type="checkbox"
         checked={task.completed}
         onChange={() => onToggle(task.id)}
-        aria-label={`Marcar "${task.title}" como completada`}
+        aria-label={`Mark "${task.title}" as completed`}
       />
 
       {isEditing ? (
@@ -51,21 +51,21 @@ export const TaskItem = ({
             name="title"
             defaultValue={task.title}
             autoFocus
-            aria-label="Editar título de la tarea"
+            aria-label="Edit task title"
           />
           <div className="task-item__actions">
             <button
               className="task-item__button task-item__button--save"
               type="submit"
             >
-              Guardar
+              Save
             </button>
             <button
               className="task-item__button"
               type="button"
               onClick={onCancelEdit}
             >
-              Cancelar
+              Cancel
             </button>
           </div>
         </form>
@@ -81,14 +81,14 @@ export const TaskItem = ({
               type="button"
               onClick={() => onStartEdit(task.id)}
             >
-              Editar
+              Edit
             </button>
             <button
               className="task-item__button task-item__button--delete"
               type="button"
               onClick={() => onDelete(task.id)}
             >
-              Eliminar
+              Delete
             </button>
           </div>
         </>

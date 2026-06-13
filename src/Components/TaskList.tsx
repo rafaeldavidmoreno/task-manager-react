@@ -24,11 +24,11 @@ export const TaskList = ({
   const pendingCount = tasks.filter((task) => !task.completed).length
 
   return (
-    <section className="task-list" aria-label="Lista de tareas">
+    <section className="task-list" aria-label="Task list">
       <header className="task-list__header">
-        <h2 className="task-list__title">Mis tareas</h2>
+        <h2 className="task-list__title">My tasks</h2>
         <span className="task-list__count">
-          {pendingCount} pendiente{pendingCount !== 1 ? 's' : ''}
+          {pendingCount} pending
         </span>
       </header>
 
@@ -37,9 +37,9 @@ export const TaskList = ({
           <span className="task-list__empty-icon" aria-hidden="true">
             📋
           </span>
-          <p className="task-list__empty-text">No hay tareas todavía</p>
+          <p className="task-list__empty-text">No tasks yet</p>
           <p className="task-list__empty-hint">
-            Usa el formulario de arriba para crear tu primera tarea
+            Use the form above to create your first task
           </p>
         </div>
       ) : (
