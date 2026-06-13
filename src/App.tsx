@@ -47,7 +47,9 @@ export default function App() {
   }
 
   // TODO: cancelar edición
-  const handleCancelEdit = () => {}
+  const handleCancelEdit = () => {
+    setEditingTaskId(null);
+  }
 
   // TODO: eliminar una tarea
   const handleDeleteTask = (_id: string) => {}
