@@ -6,11 +6,19 @@ import './App.css'
 
 export default function App() {
   // TODO: gestionar el estado de las tareas (useState o useReducer)
-  const [tasks] = useState<Task[]>([])
+  const [tasks, setTasks] = useState<Task[]>([])
   const [editingTaskId] = useState<string | null>(null)
 
   // TODO: crear una nueva tarea
-  const handleCreateTask = (_title: string) => {}
+  const handleCreateTask = (_title: string) => {
+    const newTask: Task = {
+      id: crypto.randomUUID(),
+      title: _title,
+      completed: false
+    }
+
+    setTasks((prevTasks) => [...prevTasks,newTask])
+  }
 
   // TODO: alternar completada / pendiente
   const handleToggleTask = (_id: string) => {}
