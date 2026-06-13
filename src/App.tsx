@@ -50,14 +50,6 @@ export default function App() {
         <main className="app__main">
           <TaskForm onSubmit={handleCreateTask} />
 
-          <div className="app__stats">
-            <span>Total: {tasks.length}</span>
-            <span>
-              Pendientes:{' '}
-              <span className="app__stats-count">{pendingCount}</span>
-            </span>
-          </div>
-
           <TaskList
             tasks={tasks}
             editingTaskId={editingTaskId}
