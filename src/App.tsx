@@ -21,7 +21,14 @@ export default function App() {
   }
 
   // TODO: alternar completada / pendiente
-  const handleToggleTask = (_id: string) => {}
+  const handleToggleTask = (_id: string) => {
+    setTasks((prevTasks) => prevTasks.map((task) =>{
+      if(task.id === _id) {
+        return {...task, completed: !task.completed}
+      }
+      return task
+    }))
+  }
 
   // TODO: activar modo edición de una tarea
   const handleStartEdit = (_id: string) => {}
